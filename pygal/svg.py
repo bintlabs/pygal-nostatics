@@ -31,6 +31,7 @@ from numbers import Number
 from lxml import etree
 from math import cos, sin, pi
 from pygal.util import template, coord_format, minify_css
+from pygal.css import base_css, style_css, graph_css
 from pygal import __version__
 
 
@@ -76,10 +77,16 @@ class Svg(object):
             else:
                 if css.startswith('inline:'):
                     css_text = css[len('inline:'):]
+                elif css in ('base.css', 'style.css', 'graph.css'):
+                    css_text = template(
+                        {'base.css': base_css,
+                         'style.css': style_css,
+                         'graph.css': graph_css}[css].contents,
+                        style=self.graph.config.style,
+                        colors=colors,
+                        font_sizes=self.graph.config.font_sizes(),
+                        id=self.id)
                 else:
-                    if not os.path.exists(css):
-                        css = os.path.join(
-                            os.path.dirname(__file__), 'css', css)
                     with io.open(css, encoding='utf-8') as f:
                         css_text = template(
                             f.read(),

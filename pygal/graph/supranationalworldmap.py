@@ -23,15 +23,14 @@ Supranational Worldmap chart
 
 from __future__ import division
 from pygal.graph.worldmap import Worldmap
+from pygal.graph import worldmap_svg
 from pygal.i18n import SUPRANATIONAL
 from pygal.util import cut, decorate
 from lxml import etree
 import os
 
-with open(os.path.join(
-        os.path.dirname(__file__),
-        'worldmap.svg')) as file:
-    MAP = file.read()
+
+MAP = worldmap_svg.contents
 
 
 class SupranationalWorldmap(Worldmap):

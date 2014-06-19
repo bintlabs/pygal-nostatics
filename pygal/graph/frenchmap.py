@@ -26,6 +26,7 @@ from collections import defaultdict
 from pygal.ghost import ChartCollection
 from pygal.util import cut, cached_property, decorate
 from pygal.graph.graph import Graph
+from pygal.graph import fr_departments_svg, fr_regions_svg
 from pygal._compat import u
 from numbers import Number
 from lxml import etree
@@ -172,16 +173,10 @@ REGIONS = {
 }
 
 
-with open(os.path.join(
-        os.path.dirname(__file__),
-        'fr.departments.svg')) as file:
-    DPT_MAP = file.read()
+DPT_MAP = fr_departments_svg.contents
 
 
-with open(os.path.join(
-        os.path.dirname(__file__),
-        'fr.regions.svg')) as file:
-    REG_MAP = file.read()
+REG_MAP = fr_regions_svg.contents
 
 
 class FrenchMapDepartments(Graph):

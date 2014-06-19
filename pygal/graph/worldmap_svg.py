@@ -1,3 +1,23 @@
+# -*- coding: utf-8 -*-
+# This file is part of pygal
+#
+# A python svg graph plotting library
+# Copyright © 2012-2014 Kozea
+#
+# This library is free software: you can redistribute it and/or modify it under
+# the terms of the GNU Lesser General Public License as published by the Free
+# Software Foundation, either version 3 of the License, or (at your option) any
+# later version.
+#
+# This library is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+# FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for more
+# details.
+#
+# You should have received a copy of the GNU Lesser General Public License
+# along with pygal. If not, see <http://www.gnu.org/licenses/>.
+
+contents = """
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 2475 1388">
  <g id="ad" class="country map-element">
   <path d="m1217.5 316.32c0.5-0.72 1.8-0.37 2.3 0.29-0.5 0.64-1.3 0.98-2.1 1.08 0-0.47-0.1-0.92-0.2-1.37"/>
@@ -2406,3 +2426,4 @@
   <path d="m1391.9 838.68c1 0.22 2 0.43 2.9 0.07 1-0.34 1.4 1.07 2 1.46 0.7 0.43 1.9-0.63 2.5-0.73 0.8-0.13 2.1 0.81 2.8 1.12 2.1 0.9 3.4-1.01 4.5-2.54 1.5-2.04 3-3.94 4.1-5.76 0.5-0.87 1.2-1.22 2-1.83 1.1-0.83 2.2-1.35 3.5-1.88 2.5-1.02 2.9-1.32 3-4.11 0.1-1.37 2.4-3.07 3.7-3.56 1.1-0.46 2.5-1.1 3.8-1.14 1.5-0.06 3 0.42 4.5 0.04 0 2.86-0.2 3.14 3 3.14 2 0 3.1 0.48 5 1.27 1.1 0.43 3.6 1.89 4.6 2.44 1.5 0.79 4 0.45 4.6 1.7 0.4 0.92 1.1 0.99 2 0.73-0.2 1.33-1 2.09-0.4 3.46 0.8 1.61-0.1 2.8 0.4 4.31 0.4 1.46-0.7 3.09-0.4 4.69 0.3 1.1 0.9 2.01 0 2.89-0.8 0.64-0.1 2.14-0.5 2.38-1.1 0.58-1.3 0.49-1.7 1.78-0.2 0.58 0.8 0.79 1 1.04 0.3 0.22 0.1 1.07 0 1.31-0.1 0.59-0.5 0.91-0.7 1.45-0.1 0.42 0.5 2 0.7 2.47 0.2-0.1 0.4-0.2 0.7-0.29-0.1 1.57 0.5 2.19-0.4 3.79-0.8 1.28-1.3 3.41-2.7 4.08-1.6 0.73-0.4 1.72-0.7 2.93-0.3 1.48-1.5 2.34-0.3 3.82-1.2-0.87-6.6 7.13-7.6 7.76-1 0.61-1.5 1.94-1.9 1.93-0.8-1.76-4.1-1.03-5.8-1.02-1.5 0-2.9-0.57-4.2-1.04-3.2-1.08-4.1-0.31-4.3-0.52-0.8-0.99-0.9-0.5-1.9-1.02-1-0.57 0-1.5-0.3-1.94-1.5-1.95-7.1-0.7-7.9-2.75-0.9-2.01-2.5-3.93-1.8-5.93 1-2.75-0.4-3.38-3.1-2.82 0.5-2.6-0.2-3.66-2.6-4.38-1.9-0.57-4.5-2.7-5.6-4.36-1.6-2.54-1.6-5.72-3.6-8.18-0.8-1.07-3.6-4.83-2.9-6.26"/>
  </g>
  </svg>
+"""

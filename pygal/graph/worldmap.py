@@ -24,14 +24,13 @@ Worldmap chart
 from __future__ import division
 from pygal.util import cut, cached_property, decorate
 from pygal.graph.graph import Graph
+from pygal.graph import worldmap_svg
 from pygal.i18n import COUNTRIES
 from lxml import etree
 import os
 
-with open(os.path.join(
-        os.path.dirname(__file__),
-        'worldmap.svg')) as file:
-    MAP = file.read()
+
+MAP = worldmap_svg.contents
 
 
 class Worldmap(Graph):
