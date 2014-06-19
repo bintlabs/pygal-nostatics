@@ -19,6 +19,7 @@
 import sys
 from collections import Iterable
 
+
 if sys.version_info[0] == 3:
     base = (str, bytes)
     coerce = str
@@ -38,6 +39,12 @@ def is_str(string):
 def to_str(string):
     if not is_str(string):
         return coerce(string)
+    return string
+
+
+def to_unicode(string):
+    if not isinstance(string, coerce):
+        return string.decode('utf-8')
     return string
 
 

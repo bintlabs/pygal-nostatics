@@ -18,13 +18,12 @@
 # along with pygal. If not, see <http://www.gnu.org/licenses/>.
 
 from pygal import (
-    Line, Dot, Pie, Radar, Config, Bar, Funnel, Worldmap,
+    Line, Dot, Pie, Treemap, Radar, Config, Bar, Funnel, Worldmap,
     SupranationalWorldmap, Histogram, Gauge, Box, XY,
     Pyramid, DateY, HorizontalBar, HorizontalStackedBar,
     FrenchMap_Regions, FrenchMap_Departments)
 from pygal._compat import u
 from pygal.test.utils import texts
-from pygal.test import pytest_generate_tests
 from tempfile import NamedTemporaryFile
 
 
@@ -273,7 +272,7 @@ def test_no_data():
 
 def test_include_x_axis(Chart):
     chart = Chart()
-    if Chart in (Pie, Radar, Funnel, Dot, Gauge, Worldmap,
+    if Chart in (Pie, Treemap, Radar, Funnel, Dot, Gauge, Worldmap,
                  SupranationalWorldmap, Histogram, Box,
                  FrenchMap_Regions, FrenchMap_Departments):
         return
@@ -360,7 +359,7 @@ def test_x_y_title(Chart):
 
 def test_x_label_major(Chart):
     if Chart in (
-            Pie, Funnel, Dot, Gauge, Worldmap,
+            Pie, Treemap, Funnel, Dot, Gauge, Worldmap,
             SupranationalWorldmap, Histogram, Box,
             FrenchMap_Regions, FrenchMap_Departments,
             Pyramid, DateY):
@@ -404,7 +403,7 @@ def test_x_label_major(Chart):
 
 def test_y_label_major(Chart):
     if Chart in (
-            Pie, Funnel, Dot, Gauge, Worldmap,
+            Pie, Treemap, Funnel, Dot, Gauge, Worldmap,
             SupranationalWorldmap, Histogram, Box,
             FrenchMap_Regions, FrenchMap_Departments,
             HorizontalBar, HorizontalStackedBar,

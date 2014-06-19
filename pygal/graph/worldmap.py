@@ -26,7 +26,7 @@ from pygal.util import cut, cached_property, decorate
 from pygal.graph.graph import Graph
 from pygal.graph import worldmap_svg
 from pygal.i18n import COUNTRIES
-from lxml import etree
+from pygal.etree import etree
 import os
 
 
@@ -73,7 +73,16 @@ class Worldmap(Graph):
                     ratio = 1
                 else:
                     ratio = .3 + .7 * (value - min_) / (max_ - min_)
-                country = map.find('.//*[@id="%s"]' % country_code)
+
+                try:
+                    country = map.find('.//*[@id="%s"]' % country_code)
+                except SyntaxError:
+                    # Python 2.6 (you'd better install lxml)
+                    country = None
+                    for e in map:
+                        if e.attrib.get('id', '') == country_code:
+                            country = e
+
                 if country is None:
                     continue
                 cls = country.get('class', '').split(' ')
@@ -85,14 +94,13 @@ class Worldmap(Graph):
 
                 metadata = serie.metadata.get(j)
                 if metadata:
-                    parent = country.getparent()
                     node = decorate(self.svg, country, metadata)
                     if node != country:
                         country.remove(node)
-                        index = parent.index(country)
-                        parent.remove(country)
+                        index = list(map).index(country)
+                        map.remove(country)
                         node.append(country)
-                        parent.insert(index, node)
+                        map.insert(index, node)
 
                 last_node = len(country) > 0 and country[-1]
                 if last_node is not None and last_node.tag == 'title':

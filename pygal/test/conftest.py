@@ -16,31 +16,32 @@
 #
 # You should have received a copy of the GNU Lesser General Public License
 # along with pygal. If not, see <http://www.gnu.org/licenses/>.
-"""
-Graph modules
 
-"""
+import pytest
+import pygal
+from pygal.etree import etree
+from . import get_data
 
-CHARTS_NAMES = [
-    'Line',
-    'StackedLine',
-    'XY',
-    'Bar',
-    'HorizontalBar',
-    'StackedBar',
-    'HorizontalStackedBar',
-    'Pie',
-    'Radar',
-    'Funnel',
-    'Pyramid',
-    'VerticalPyramid',
-    'Dot',
-    'Gauge',
-    'DateY',
-    'Worldmap',
-    'SupranationalWorldmap',
-    'Histogram',
-    'Box',
-    'FrenchMap',
-    'Treemap'
-]
+
+@pytest.fixture
+def etreefx(request):
+    if request.param == 'etree':
+        etree.to_etree()
+    if request.param == 'lxml':
+        etree.to_lxml()
+
+
+def pytest_generate_tests(metafunc):
+    if etree._lxml_etree:
+        metafunc.fixturenames.append('etreefx')
+        metafunc.parametrize('etreefx', ['lxml', 'etree'], indirect=True)
+
+    if "Chart" in metafunc.funcargnames:
+        metafunc.parametrize("Chart", pygal.CHARTS)
+    if "datas" in metafunc.funcargnames:
+        metafunc.parametrize(
+            "datas",
+            [
+                [("Serie %d" % i, get_data(i)) for i in range(s)]
+                for s in (5, 1, 0)
+            ])
